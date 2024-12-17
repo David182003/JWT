@@ -7,20 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/productos")
-public class PorductController {
+@RequestMapping("/home")
+public class HomeController {
     @GetMapping
     public ResponseEntity<?> obtenerProductos() {
-        // Obtiene el nombre de usuario del contexto de seguridad actual
+        // Gets the username of the current security context
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        // Construye la respuesta
         Map<String, Object> response = new HashMap<>();
-        response.put("mensaje", "Bienvenido " + username);
-        response.put("productos", List.of("Producto1", "Producto2", "Producto3"));
+        response.put("message", "Bienvenido " + username);
         return ResponseEntity.ok(response);
     }
 }

@@ -15,18 +15,23 @@ import java.util.Map;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+
+    // inject auth service
     @Autowired
     private AuthService authService;
 
+    // inject jwtUtil
     @Autowired
     private JwtUtil jwtUtil;
 
+    // method register
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User usuario) {
         User registrado = authService.registrar(usuario);
         return ResponseEntity.ok(registrado);
     }
 
+    // method login
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User credenciales) {
         User usuario = authService.validarCredenciales(credenciales.getUsername(), credenciales.getPassword());

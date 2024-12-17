@@ -10,9 +10,11 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
+    // inject secret_key
     @Value("${jwt.secret}")
     private String SECRET_KEY;
 
+    // method generate token
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -22,6 +24,7 @@ public class JwtUtil {
                 .compact();
     }
 
+    // method extract username
     public String extractUsername(String token) {
         return Jwts.parser()
                 .setSigningKey(SECRET_KEY)
@@ -30,10 +33,12 @@ public class JwtUtil {
                 .getSubject();
     }
 
+    // method validate token
     public boolean validateToken(String token, String username) {
         return username.equals(extractUsername(token)) && !isTokenExpired(token);
     }
 
+    // method token expired
     private boolean isTokenExpired(String token) {
         return Jwts.parser()
                 .setSigningKey(SECRET_KEY)

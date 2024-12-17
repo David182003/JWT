@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Generación nativa de ID (auto-incremental)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Native ID generation (auto increment)
     private Long id;
 
     @Column(unique = true, nullable = false)

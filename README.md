@@ -14,3 +14,5 @@ Clona el repositorio
 - Encryptar el password
 - Generar un token firmado 
 - Acceder a la ruta Protegida Home
+
+![Captura de pantalla 2024-12-16 220250](https://github.com/user-attachments/assets/0360985e-2f2f-4195-b1c5-79b871f4b4d9)
